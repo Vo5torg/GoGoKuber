@@ -1,0 +1,15 @@
+[k8s_master]
+master-node-0 ansible_host=192.168.0.187 ansible_user=root
+master-node-1 ansible_host=192.168.0.189 ansible_user=root
+master-node-2 ansible_host=192.168.0.190 ansible_user=root
+
+
+[k8s_workers]
+worker-node-0  ansible_host=192.168.0.192 ansible_user=root
+worker-node-1  ansible_host=192.168.0.194 ansible_user=root
+worker-node-2  ansible_host=192.168.0.196 ansible_user=root
+
+
+[k8s_cluster:children]
+k8s_master
+k8s_workers
