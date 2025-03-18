@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uuid-server-ingress
+spec:
+  rules:
+    - host: uuid.awesomeservice.pro
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: uuid-server
+                port:
+                  number: 8080
