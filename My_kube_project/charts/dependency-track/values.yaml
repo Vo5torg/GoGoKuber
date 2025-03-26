@@ -56,8 +56,8 @@ apiServer:
     seccompProfile:
       type: RuntimeDefault
   persistentVolume:
-    enabled: false
-    className: ""
+    enabled: true
+    className: "nfs-client"
     size: 5Gi
   extraEnv: []
     # - name: "ALPINE_DATABASE_PASSWORD"
@@ -195,10 +195,10 @@ frontend:
   nodeSelector: {}
 
 ingress:
-  enabled: false
+  enabled: true
   annotations: {}
-  hostname: "example.com"
-  ingressClassName: ""
+  hostname: "deptrack.local"
+  ingressClassName: "nginx"
   tls: []
   #  - secretName: dt-tls
   #    hosts:
