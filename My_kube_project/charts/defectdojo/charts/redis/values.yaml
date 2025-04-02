@@ -21,7 +21,7 @@ global:
   ##
   imagePullSecrets: []
   defaultStorageClass: ""
-  storageClass: ""
+  storageClass: "nfs-client"
   redis:
     password: ""
   ## Compatibility adaptations for Kubernetes platforms
