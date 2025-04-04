@@ -76,7 +76,7 @@ gitlabUrl: https://gitlab.secware.ru/
 ## be retrieved from your GitLab instance. It is the token of an already registered runner.
 ## ref: (we don't have docs for that yet, but we want to use an existing token)
 ##
-runnerToken: "glrt-t3_bqnNh9AJGYtjGqxG2LFs"
+runnerToken: "glrt-t3_zQ3kxpWx4yesks4qezX-"
 #
 
 ## Unregister all runners before termination
@@ -441,6 +441,11 @@ runners:
       [runners.kubernetes]
         namespace = "{{.Release.Namespace}}"
         image = "gitlab/gitlab-runner-helper:x86_64-latest"
+    [[runners.kubernetes.host_aliases]]
+      ip = "192.168.0.192"
+      hostnames = ["defectdojo.local", "deptrack.local", "harbor.local"]
+    
+
 
   ## Absolute path for an existing runner configuration file
   ## Can be used alongside "volumes" and "volumeMounts" to use an external config file
@@ -664,12 +669,13 @@ extraEnvFrom: {}
   #     key: secretkey
 
 ## list of hosts and IPs that will be injected into the pod's hosts file
-hostAliases: []
+hostAliases: 
   # Example:
-  # - ip: "127.0.0.1"
-  #   hostnames:
-  #   - "foo.local"
-  #   - "bar.local"
+  - ip: "192.168.0.192"
+    hostnames:
+    - "defectdojo.local"
+    - "deptrack.local"
+    - "harbor.local"
   # - ip: "10.1.2.3"
   #   hostnames:
   #   - "foo.remote"
