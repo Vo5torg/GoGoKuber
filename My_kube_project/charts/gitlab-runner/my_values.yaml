@@ -1,3 +1,4 @@
+
 ## GitLab Runner Image
 ##
 ## By default it's using registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v{VERSION}
@@ -76,7 +77,7 @@ gitlabUrl: https://gitlab.secware.ru/
 ## be retrieved from your GitLab instance. It is the token of an already registered runner.
 ## ref: (we don't have docs for that yet, but we want to use an existing token)
 ##
-runnerToken: "glrt-t3_zQ3kxpWx4yesks4qezX-"
+runnerToken: "glrt-t3_7LArKaNE7CTjsKawPsKD"
 #
 
 ## Unregister all runners before termination
@@ -441,10 +442,14 @@ runners:
       [runners.kubernetes]
         namespace = "{{.Release.Namespace}}"
         image = "gitlab/gitlab-runner-helper:x86_64-latest"
+        image_pull_secrets=["harbor-creds"]
     [[runners.kubernetes.host_aliases]]
       ip = "192.168.0.192"
       hostnames = ["defectdojo.local", "deptrack.local", "harbor.local"]
-    
+    [[runners.kubernetes.volumes.secret]]
+      name="harbor-ingress"
+      mount_path="/etc/ssl/certs/harbor.crt"
+      sub_path="ca.crt"
 
 
   ## Absolute path for an existing runner configuration file
