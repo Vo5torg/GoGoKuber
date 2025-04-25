@@ -30,7 +30,7 @@ rbac:
   create: true
   # -- Set to a rolename to use existing role.
   # @default -- cluster-admin
-  useExistingRole:
+  useExistingRole: gitlab-runner
 
 # -- serviceAccount settings
 serviceAccount:
@@ -70,7 +70,7 @@ config:
   # `[ "Cookie: gitlab-canary" ]`
   kasHeaders: []
   # -- put your agent token here
-  token: 'glagent-Ps2NvqMVK7jF48T75yaCEDSeysSXWa61FgQFLqwAMsEap3WQVQ'
+  token: 'glagent-tLu7yKFztot2Bygug1-pnAAy9kXN2ixyz1c6uozwhg_SaMVyuA'
   # -- name of the secret storing the token
   secretName:
   # -- PEM certificate file to use to verify config.kasAddress. Useful if config.kasAddress is self-signed.
