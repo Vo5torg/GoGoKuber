@@ -133,7 +133,8 @@ celery:
   beat:
     annotations: {}
     affinity: {}
-    nodeSelector: {}
+    nodeSelector: 
+      runner-node: "false"
     replicas: 1
     resources:
       requests:
@@ -146,7 +147,8 @@ celery:
   worker:
     annotations: {}
     affinity: {}
-    nodeSelector: {}
+    nodeSelector: 
+      runner-node: "false"
     replicas: 1
     resources:
       requests:
@@ -232,7 +234,8 @@ django:
       limits:
         cpu: 2000m
         memory: 256Mi
-  nodeSelector: {}
+  nodeSelector:
+    runner-node: "false"
   replicas: 1
   strategy: {}
   tolerations: []
@@ -340,7 +343,8 @@ initializer:
   labels: {}
   keepSeconds: 60 # A positive integer will keep this Job and Pod deployed for the specified number of seconds, after which they will be removed. For all other values, the Job and Pod will remain deployed.
   affinity: {}
-  nodeSelector: {}
+  nodeSelector: 
+    runner-node: "false"
   resources:
     requests:
       cpu: 100m
@@ -415,7 +419,8 @@ postgresql:
       # runAsUser specification below is not applied if enabled=false. enabled=false is the required setting for OpenShift "restricted SCC" to work successfully.
       runAsUser: 1001
     affinity: {}
-    nodeSelector: {}
+    nodeSelector: 
+      runner-node: "false"
   volumePermissions:
     enabled: false
     # if using restricted SCC set runAsUser: "auto" and if running under anyuid SCC - runAsUser needs to match the line above

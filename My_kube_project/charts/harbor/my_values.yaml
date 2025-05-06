@@ -503,7 +503,8 @@ nginx:
   #    memory: 256Mi
   #    cpu: 100m
   extraEnvVars: []
-  nodeSelector: {}
+  nodeSelector: 
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
@@ -534,7 +535,8 @@ portal:
   #    memory: 256Mi
   #    cpu: 100m
   extraEnvVars: []
-  nodeSelector: {}
+  nodeSelector: 
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
@@ -578,7 +580,8 @@ core:
   #    memory: 256Mi
   #    cpu: 100m
   extraEnvVars: []
-  nodeSelector: {}
+  nodeSelector:
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
@@ -661,7 +664,8 @@ jobservice:
   #     memory: 256Mi
   #     cpu: 100m
   extraEnvVars: []
-  nodeSelector: {}
+  nodeSelector:
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
@@ -733,7 +737,8 @@ registry:
   automountServiceAccountToken: false
   replicas: 1
   revisionHistoryLimit: 10
-  nodeSelector: {}
+  nodeSelector: 
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
@@ -817,7 +822,8 @@ trivy:
       cpu: 1
       memory: 1Gi
   extraEnvVars: []
-  nodeSelector: {}
+  nodeSelector: 
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
@@ -911,7 +917,8 @@ database:
     readinessProbe:
       timeoutSeconds: 1
     extraEnvVars: []
-    nodeSelector: {}
+    nodeSelector: 
+      runner-node: "false"
     tolerations: []
     affinity: {}
     ## The priority class to run the pod as
@@ -985,7 +992,8 @@ redis:
     #    memory: 256Mi
     #    cpu: 100m
     extraEnvVars: []
-    nodeSelector: {}
+    nodeSelector: 
+      runner-node: "false"
     tolerations: []
     affinity: {}
     ## The priority class to run the pod as
@@ -1051,7 +1059,8 @@ exporter:
   podAnnotations: {}
   ## Additional deployment labels
   podLabels: {}
-  nodeSelector: {}
+  nodeSelector: 
+    runner-node: "false"
   tolerations: []
   affinity: {}
   # Spread Pods across failure-domains like regions, availability zones or nodes
